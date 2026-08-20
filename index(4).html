@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Rajamohan Crash Flight</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="intro" class="intro">
+  <div class="intro-small">POWERED BY</div>
+  <div class="intro-name">RAJAMOHAN</div>
+</div>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">✈️ CRASH FLIGHT</div>
+    <div class="balance">🪙 ₹<span id="balance">10000.00</span></div>
+  </header>
+  <div class="player-name">RAJAMOHAN</div>
+  <div class="history-box">
+    <div class="history-title">HISTORY</div>
+    <div id="history" class="history-list"></div>
+  </div>
+  <main class="flight-area">
+    <div class="stars"></div>
+    <div id="multiplier" class="multiplier red">1.00x</div>
+    <div id="status" class="status">WAITING 3...</div>
+    <div class="graph">
+      <svg id="flightSvg" viewBox="0 0 1000 600" preserveAspectRatio="none">
+        <polyline id="blueLine" points="" fill="none" stroke="#20bfff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></polyline>
+        <polyline id="redLine" points="" fill="none" stroke="#ff315d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+      </svg>
+      <div id="plane" class="plane">✈️</div>
+      <div id="crashEffect" class="crash-effect">💥</div>
+    </div>
+  </main>
+  <section class="controls">
+    <div class="control-card">
+      <div class="label">Virtual Bet</div>
+      <input id="betAmount" type="number" min="1" value="10">
+      <button id="betBtn" class="bet-btn">💚 BET ₹10.00</button>
+      <button id="cancelBtn" class="cancel-btn" disabled>CANCEL BET</button>
+    </div>
+    <div class="control-card">
+      <div class="label">Cash Out</div>
+      <button id="cashBtn" class="cash-btn" disabled>CASH OUT ₹0.00</button>
+    </div>
+    <div class="bonus-card">
+      <button id="bonusBtn" class="bonus-btn">🎁 BONUS +1000</button>
+    </div>
+    <button id="soundBtn" class="sound-btn">🔊 SOUND ON</button>
+  </section>
+  <footer>
+    VIRTUAL COINS ONLY • PRACTICE DEMO<br>
+    <span class="footer-brand">POWERED BY RAJAMOHAN</span>
+  </footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

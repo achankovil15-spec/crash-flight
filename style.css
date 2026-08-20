@@ -1,0 +1,38 @@
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;background:#05080d;color:white;font-family:Arial,Helvetica,sans-serif}
+body{overflow-x:hidden}
+button,input{font-family:inherit}
+.intro{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#05080d;animation:introHide 1.8s ease forwards}
+.intro-small{color:#8ee7ff;font-size:14px;font-weight:900;letter-spacing:5px;animation:introText .8s ease}
+.intro-name{margin-top:8px;color:#35e56b;font-size:42px;font-weight:1000;letter-spacing:4px;text-shadow:0 0 12px #35e56b,0 0 30px rgba(53,229,107,.5);animation:introText .8s ease}
+@keyframes introText{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+@keyframes introHide{0%,75%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden;pointer-events:none}}
+.app{width:100%;max-width:900px;min-height:100vh;margin:auto;background:#07101a;overflow:hidden}
+.topbar{height:58px;padding:0 14px;display:flex;align-items:center;justify-content:space-between;background:#11151a;border-bottom:1px solid #29323b}
+.brand{font-size:20px;font-weight:900}.balance{color:#42e35a;font-size:16px;font-weight:900}
+.player-name{text-align:center;padding:6px;color:#8ee7ff;font-size:12px;font-weight:900;letter-spacing:2px;background:#06101a}
+.history-box{height:48px;background:#05070a;border-bottom:1px solid #18232d;display:flex;align-items:center;padding:6px 12px;gap:12px;overflow:hidden}
+.history-title{font-size:14px;font-weight:900;flex-shrink:0}.history-list{display:flex;gap:12px;overflow:hidden;white-space:nowrap}.history-item{font-size:15px;font-weight:900}.history-red{color:#ff315d}.history-orange{color:#ffae2e}.history-green{color:#35e36a}
+.flight-area{position:relative;width:100%;height:30vh;min-height:205px;max-height:300px;overflow:hidden;background:radial-gradient(circle at 50% 100%,#10476d 0%,#09253c 30%,#050b13 75%)}
+.flight-area::before{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg,rgba(25,125,190,.15) 0deg 8deg,transparent 8deg 16deg);animation:slowRotate 18s linear infinite}
+@keyframes slowRotate{to{transform:rotate(360deg)}}
+.stars{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1px);background-size:42px 42px;opacity:.15}
+.multiplier{position:absolute;top:34%;left:50%;transform:translate(-50%,-50%);z-index:20;font-size:clamp(48px,12vw,78px);font-weight:1000;text-shadow:0 0 20px currentColor,0 0 40px rgba(255,255,255,.15)}
+.red{color:#ff315d}.orange{color:#ffae27}.green{color:#35e56b}
+.status{position:absolute;top:50%;left:50%;transform:translateX(-50%);z-index:20;color:#ffe66b;font-size:15px;font-weight:900;white-space:nowrap}
+.graph{position:absolute;inset:0}#flightSvg{width:100%;height:100%}
+.plane{position:absolute;z-index:30;left:7%;bottom:6%;font-size:clamp(34px,8vw,55px);transform:rotate(-18deg);filter:drop-shadow(0 0 8px #2bbcff) drop-shadow(0 0 18px rgba(0,150,255,.5));transition:left .08s linear,bottom .08s linear}
+.plane.flying{animation:planeFloat 1.8s ease-in-out infinite alternate}
+@keyframes planeFloat{0%{transform:translate(0,0) rotate(-18deg)}50%{transform:translate(5px,-5px) rotate(-14deg)}100%{transform:translate(9px,3px) rotate(-20deg)}}
+.crash-effect{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.2);font-size:90px;opacity:0;z-index:100}.crash-effect.show{animation:blast .8s ease-out forwards}
+@keyframes blast{0%{opacity:1;transform:translate(-50%,-50%) scale(.2)}45%{opacity:1;transform:translate(-50%,-50%) scale(1.4)}100%{opacity:0;transform:translate(-50%,-50%) scale(2.5)}}
+.controls{padding:9px;display:grid;grid-template-columns:1fr 1fr;gap:8px;background:#091522}
+.control-card,.bonus-card{background:#101e2b;border:1px solid #273c50;border-radius:14px;padding:9px}.label{color:#a8b6c4;margin-bottom:7px;font-size:15px}
+#betAmount{width:100%;height:46px;border-radius:10px;border:1px solid #42586d;background:#050b12;color:white;text-align:center;font-size:19px;font-weight:900;margin-bottom:7px}
+button{border:0;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.bet-btn,.cash-btn,.bonus-btn,.cancel-btn,.sound-btn{width:100%;min-height:46px;border-radius:11px;font-size:14px;font-weight:1000}
+.bet-btn{background:#18c83b;color:white}.cash-btn{background:#bd8a22;color:#080808}.cancel-btn{margin-top:7px;background:#3a4550;color:#d8e0e7}.bonus-card{grid-column:1 / -1}.bonus-btn{background:#7559ee;color:white}.sound-btn{grid-column:1 / -1;background:#20384e;color:white}
+button:active{transform:scale(.97)}button:disabled{opacity:.4;cursor:not-allowed}
+footer{text-align:center;padding:10px;color:#7c8d9e;font-size:10px;line-height:1.4}.footer-brand{color:#35e56b;font-weight:900;letter-spacing:2px}
+@media(max-width:600px){.topbar{height:52px;padding:0 11px}.brand{font-size:17px}.balance{font-size:14px}.player-name{padding:5px;font-size:10px}.history-box{height:44px;padding:5px 9px}.history-title{font-size:12px}.history-item{font-size:13px}.flight-area{height:30vh;min-height:205px;max-height:300px}.multiplier{top:34%;font-size:clamp(45px,14vw,70px)}.status{top:50%;font-size:13px}.plane{font-size:40px}.controls{padding:7px;gap:7px}.control-card,.bonus-card{padding:8px}.label{font-size:14px}#betAmount{height:42px}.bet-btn,.cash-btn,.bonus-btn,.cancel-btn,.sound-btn{min-height:44px;font-size:13px}footer{padding:7px}.intro-name{font-size:32px}}
+@media(max-height:700px){.flight-area{height:29vh;min-height:195px}.controls{padding:5px;gap:5px}.control-card,.bonus-card{padding:6px}}
